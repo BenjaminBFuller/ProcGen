@@ -11,7 +11,7 @@ scale = 400         # higher zoomed in factor = higher number
 octaves = 5         # number of layers
 persistence = 0.5   # amplitude that each octave contributes to overall shape
 lacunarity = 2.0    # frequency of detail at each octave
-seed = np.random.randint(0, 100)
+seed = np.random.randint(0, 1000000)
 
 world = np.zeros(shape)
 for i in range(shape[0]):

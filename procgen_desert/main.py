@@ -1,4 +1,5 @@
 import noise
+import random
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as plticker
@@ -35,13 +36,37 @@ def add_color(world):
     color_world = np.zeros(world.shape + (3,))
     for i in range(shape[0]):
         for j in range(shape[1]):
-            if world[i][j] < -0.25:
+            if world[i][j] < -0.3:
                 color_world[i][j] = sandstone
-            elif world[i][j] < -.05:
+            elif world[i][j] < -0.15:
+                rand_int = random.randint(0, 5)
+                if rand_int == 0:
+                    color_world[i][j] = sand
+                else:
+                    color_world[i][j] = sandstone
+            elif world[i][j] < -0.1:
+                rand_int = random.randint(0, 1)
+                if rand_int == 0:
+                    color_world[i][j] = sandstone
+                else:
+                    color_world[i][j] = sand
+            elif world[i][j] < 0:
+                rand_int = random.randint(0, 3)
+                if rand_int == 0:
+                    color_world[i][j] = sandstone
+                else:
+                    color_world[i][j] = sand
+            elif world[i][j] < 0.1:
                 color_world[i][j] = sand
-            elif world[i][j] < .15:
+            elif world[i][j] < 0.14:
+                rand_int = random.randint(0, 3)
+                if rand_int == 0:
+                    color_world[i][j] = sandstone
+                else:
+                    color_world[i][j] = sand
+            elif world[i][j] < 0.16:
                 color_world[i][j] = sandstone
-            elif world[i][j] < .2:
+            elif world[i][j] < 0.2:
                 color_world[i][j] = green
             elif world[i][j] < 1.0:
                 color_world[i][j] = water
@@ -65,7 +90,7 @@ a = plticker.MultipleLocator(base=myInterval)
 ax.xaxis.set_major_locator(a)
 ax.yaxis.set_major_locator(a)
 
-ax.grid(which='major', axis='both', linestyle='-', color='black', linewidth=1)
+#ax.grid(which='major', axis='both', linestyle='-', color='black', linewidth=1)
 
 ax.imshow(background)
 
